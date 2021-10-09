@@ -18,9 +18,6 @@ export class FeedPostEntity {
   @CreateDateColumn()
   createdAt: Date;
 
-  // @ManyToOne(() => UserEntity, (userEntity) => userEntity.feedPosts, {
-  //   cascade: true,
-  //   nullable: false,
-  // })
-  // author: UserEntity;
+  @ManyToOne(() => UserEntity, (userEntity) => userEntity.feedPosts)
+  author: UserEntity;
 }

@@ -16,12 +16,12 @@ export class UserEntity {
   @Column({ unique: true })
   email: string;
 
+  @Column({ select: false })
+  password: string;
+
   @Column({ type: 'enum', enum: Role, default: Role.USER })
   role: Role;
 
-  // @OneToMany(() => FeedPostEntity, (feedPostEntity) => feedPostEntity.author, {
-  //   cascade: true,
-  //   nullable: false,
-  // })
-  // feedPosts: FeedPostEntity[];
+  @OneToMany(() => FeedPostEntity, (feedPostEntity) => feedPostEntity.author)
+  feedPosts: FeedPostEntity[];
 }
